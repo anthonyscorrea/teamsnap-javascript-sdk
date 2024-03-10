@@ -156,6 +156,8 @@ modifyModel = ->
         @[rel + 'Id'] = related.id
         linking.linkItemWith(this, related)
     @[rel] = item
+    if !@links[rel]
+      @links[rel] = {href: null, params: {}}
     if item
       @[rel + 'Id'] = item.id
       @links[rel].href = item.href
